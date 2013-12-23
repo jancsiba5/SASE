@@ -13,6 +13,8 @@ public class Sprite {
 	public SpriteSheet owner;
 	public int row, col;
 	
+	public boolean disposed = false;
+	
 	public Sprite(float x, float y, SpriteSheet s, int row, int col) {
 		
 		this.position = new Vector(x, y);
@@ -24,6 +26,7 @@ public class Sprite {
 		this.owner = s;
 		this.row = row;
 		this.col = col;
+		Render.addSprite(this);
 		
 	}
 	
@@ -38,6 +41,7 @@ public class Sprite {
 		this.owner = s;
 		this.row = row;
 		this.col = col;
+		Render.addSprite(this);
 		
 	}
 	
@@ -83,6 +87,10 @@ public class Sprite {
 		
 		owner.draw(batcher, row, col, position.x, position.y, getWidth(), getHeight(), getRotation(), color);
 		
+	}
+	
+	public void dispose() {
+		this.disposed = true;
 	}
 	
 }
