@@ -104,8 +104,10 @@ public class SpriteBatcher {
 		
 		// s.owner.draw(this, s.row, s.col, s.position.x, s.position.y, s.getWidth(), s.getHeight(), s.getRotation(), s.getColor());
 		
-		draw(s.owner.texture, new float[]{s.owner.u * s.row, s.owner.v * s.col , s.owner.u * s.row + s.owner.u, s.owner.v * s.col, s.owner.u * s.row + s.owner.u, s.owner.v * s.col + s.owner.v, s.owner.u * s.row, s.owner.v * s.col + s.owner.v}, s.position.x, 
-				s.position.y, s.getWidth(), s.getHeight(), s.getRotation(), s.getColor());
+		// draw(s.owner.texture, new float[]{s.owner.u * s.row, s.owner.v * s.col , s.owner.u * s.row + s.owner.u, s.owner.v * s.col, s.owner.u * s.row + s.owner.u, s.owner.v * s.col + s.owner.v, s.owner.u * s.row, s.owner.v * s.col + s.owner.v}, s.position.x, 
+		//		s.position.y, s.getWidth(), s.getHeight(), s.getRotation(), s.getColor());
+		
+		s.draw(this);
 		
 	}
 	

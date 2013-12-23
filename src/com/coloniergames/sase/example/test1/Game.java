@@ -1,5 +1,8 @@
 package com.coloniergames.sase.example.test1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.lwjgl.input.Keyboard;
 
 import com.coloniergames.sase.GameBase;
@@ -14,7 +17,7 @@ public class Game extends GameBase {
 
 	SpriteBatcher spriteBatcher;
 	SpriteSheet sheet;
-	Sprite testSprite;
+	List<Sprite> sprites;
 	Texture t;
 	public Game() {
 		super(800, 600, false, "TEST 1", 800,
@@ -33,7 +36,9 @@ public class Game extends GameBase {
 
 		spriteBatcher.begin();
 		
-		spriteBatcher.draw(testSprite);
+		for(Sprite s : sprites) {
+			spriteBatcher.draw(s);
+		}
 		// spriteBatcher.draw(t, 50, 50, 64, 64);
 
 		spriteBatcher.end();
@@ -46,12 +51,15 @@ public class Game extends GameBase {
 
 	public void init() {
 
-
+		sprites = new ArrayList<Sprite>();
+		
 		spriteBatcher = new SpriteBatcher(100);
 
 		sheet = new SpriteSheet("res.textures.sheet", 16, 16);
 
-		testSprite = new Sprite(100, 100, sheet, 0, 0);
+		for(int i = 0; i < 1000; i++) {
+			sprites.add(new Sprite(i, i % 50, sheet, 0, 0, 64, 64));
+		}
 		
 		t = TextureData.get("res.textures.test");
 

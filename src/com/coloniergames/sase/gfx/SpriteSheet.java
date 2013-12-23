@@ -15,8 +15,13 @@ public class SpriteSheet {
 		this.cols = texture.getHeight() / cellHeight;
 		this.u = 1f / texture.getWidth() * cellWidth;
 		this.v = 1f / texture.getHeight() * cellHeight;
+		this.cellWidth = cellWidth;
+		this.cellHeight = cellHeight;
+		
+		// System.out.println("NEW SPRITESHEET " + u + ", " + v + ", " + rows + ", " + cols + ", " + cellWidth + ", " + cellHeight);
 		
 	}
+	
 	
 	public void draw(SpriteBatcher batcher, int row, int col, float x, float y) {
 		draw(batcher, row, col, x, y, texture.getWidth(), texture.getHeight(), 0, Color.WHITE);

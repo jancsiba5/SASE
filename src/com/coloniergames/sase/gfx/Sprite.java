@@ -17,9 +17,24 @@ public class Sprite {
 		
 		this.position = new Vector(x, y);
 		this.rotation = 0;
+		
 		this.width = s.cellWidth;
 		this.height = s.cellHeight;
-		this.color = Color.WHITE;
+		this.color = new Color(1, 1, 1, 1);
+		this.owner = s;
+		this.row = row;
+		this.col = col;
+		
+	}
+	
+	public Sprite(float x, float y, SpriteSheet s, int row, int col, float width, float height) {
+		
+		this.position = new Vector(x, y);
+		this.rotation = 0;
+		
+		this.width = width;
+		this.height = height;
+		this.color = new Color(1, 1, 1, 1);
 		this.owner = s;
 		this.row = row;
 		this.col = col;
@@ -64,5 +79,10 @@ public class Sprite {
 		
 	}
 	
+	public void draw(SpriteBatcher batcher) {
+		
+		owner.draw(batcher, row, col, position.x, position.y, getWidth(), getHeight(), getRotation(), color);
+		
+	}
 	
 }
